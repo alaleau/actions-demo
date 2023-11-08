@@ -1,0 +1,5 @@
+name: 'Send notification'
+description: 'Send notification'
+runs:
+  using: 'node20'
+  main: './src/notify.js'
