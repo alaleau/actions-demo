@@ -74,6 +74,11 @@ outputs:
 ```
 
 ### Use secret
+```
+token:
+  description: 'identification token'
+  required: false
+```
 
 ### Share my custom action 
 
