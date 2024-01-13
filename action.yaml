@@ -15,4 +15,4 @@ outputs:
     description: ''
 runs:
   using: 'node20'
-  main: './src/notify.js'
+  main: './build/index.js'
