@@ -21,11 +21,7 @@ jobs:
 
       - name: Send notification
         id: send-notification
-        uses: alaleau/actions-demo@main
+        uses: alaleau/send-notification-demo@main
         with:
           url: "https://mock.codes"
-          message: "My message"
-          token:  ${{ secrets.NOTIFICATION_TOKEN }}
-
-      - name: Display send notification output
-        run: echo "${{steps.send-notification.outputs.id}}"
+          message: "My notification message"

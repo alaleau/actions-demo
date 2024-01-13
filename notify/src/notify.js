@@ -1,35 +1,28 @@
-import * as core  from "@actions/core";
-import * as github  from "@actions/github";
-import { logger } from '../../src/logger.js';
+import * as core from '@actions/core'
+import * as github from '@actions/github'
 
-function sendNotification(url, message,author) {
+function sendNotification(url, message) {
   const options = {
+    url: url,
     method: 'GET',
     headers: {
       'Content-Type': 'application/json'
     },
     params: {
-      message,
-      author
+      message
     }
   };
 
-   return fetch(url, options)
+  return fetch(url, options)
     .then(response => response.json())
 };
 
-
 (async () => {
+
   const message = core.getInput("message");
   const url =  core.getInput("url");
   const { sha, actor } = github.context;
-  logger.info("sha" + sha);
-  logger.info("actor" + actor);
+  await sendNotification(url, message);
 
-  try {
-    await sendNotification(url, message,actor);
-    core.setOutput("id", Math.random());
-  } catch (e) {
-     core.setFailed(e)
-  }
+  core.setOutput('my-output', "1234");
 })();

@@ -80,6 +80,10 @@ token:
   required: false
 ```
 
+```
+token:  ${{ secrets.NOTIFICATION_TOKEN }}
+```
+
 ### Share my custom action 
 
 ### Display notification output
