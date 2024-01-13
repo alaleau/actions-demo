@@ -18,3 +18,14 @@ jobs:
       - run: npm ci
       - run: npm run build --if-present
       - run: npm test
+
+      - name: Send notification
+        id: send-notification
+        uses: alaleau/send-notification-demo@main
+        with:
+          url: "https://mock.codes"
+          message: "My message"
+          token:  ${{ secrets.NOTIFICATION_TOKEN }}
+
+      - name: Display send notification output
+        run: echo "${{steps.send-notification.outputs.id}}"
